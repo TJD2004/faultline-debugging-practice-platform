@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true, maxlength: 120 },
   email: { type: String, required: true, unique: true, lowercase: true, trim: true, maxlength: 255 },
   passwordHash: { type: String, default: null }, // null for OAuth-only accounts
-  googleId: { type: String, default: null,sparse: true },
+  googleId: { type: String, unique: true, sparse: true },
   avatarUrl: { type: String, default: null, maxlength: 500 },
   xp: { type: Number, required: true, default: 0 },
   coins: { type: Number, required: true, default: 0 },
