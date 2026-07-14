@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #0A0A0F;
+  color: #E7E7EF;
+}
+
+/* ============================================================
+   LIGHT THEME — purely additive. Only takes effect when the
+   <html> element has the "light" class (set by SettingsContext).
+   The default dark UI is completely unaffected when this class
+   is absent, so this cannot regress any existing screen.
+   ============================================================ */
+html.light body {
+  background: #F4F4F8;
+  color: #14141A;
+}
+html.light .bg-void { background-color: #F4F4F8 !important; }
+html.light .bg-surface { background-color: #FFFFFF !important; }
+html.light .bg-surface2 { background-color: #ECECF2 !important; }
+html.light .text-text { color: #14141A !important; }
+html.light .text-muted { color: #5B5B70 !important; }
+html.light .border-border { border-color: #D8D8E2 !important; }
+html.light .border-\[\#1E1E2B\] { border-color: #D8D8E2 !important; }
+html.light .bg-\[\#0D0D14\] { background-color: #FFFFFF !important; }
+html.light .bg-\[\#141420\] { background-color: #ECECF2 !important; }
+html.light .bg-\[\#0C0C13\] { background-color: #F9F9FC !important; }
+
+/* ============================================================
+   REDUCE ANIMATIONS — applied as a class on <html> when the
+   setting is on. Neutralizes plain CSS transitions/animations;
+   framer-motion elements are separately given near-zero durations
+   via the useSettings() hook where they're used.
+   ============================================================ */
+html.reduce-motion *,
+html.reduce-motion *::before,
+html.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}

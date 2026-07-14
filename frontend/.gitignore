@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.env
+.env.local
+npm-debug.log*
+
+# OS/editor
+.DS_Store
+*.swp
